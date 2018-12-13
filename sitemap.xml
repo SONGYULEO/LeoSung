@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://songyuleo.github.io/LeoSung/jq1.html</loc>
+    
+    <lastmod>2018-12-13T08:37:16.988Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://songyuleo.github.io/LeoSung/cross_domain.html</loc>
     
-    <lastmod>2018-12-13T08:33:33.736Z</lastmod>
+    <lastmod>2018-12-13T08:36:53.495Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>https://songyuleo.github.io/LeoSung/csharp1.html</loc>
     
     <lastmod>2018-07-20T07:02:26.177Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://songyuleo.github.io/LeoSung/jq1.html</loc>
-    
-    <lastmod>2018-07-20T06:47:51.440Z</lastmod>
     
   </url>
   
