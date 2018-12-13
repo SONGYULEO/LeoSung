@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="C#,Entity," />
 
 
 
@@ -80,17 +80,23 @@
 
 
 
-<meta name="description" content="關於程式設計點點滴滴">
-<meta name="keywords" content="C#、Entity、JavaScript、AngularJs">
-<meta property="og:type" content="website">
-<meta property="og:title" content="里歐口袋雜記">
-<meta property="og:url" content="https://songyuleo.github.io/LeoSung/index.html">
+<meta name="description" content="在開發期間使用的Entity是在test環境下，但要切換到正式環境不用整個專案review一次或者把entity拿掉才能切換過去，不能針對xxx.edmx底下的DbContext直接修改，這是系統自動產生的，但可以再另外partail class要切換的Connection name 。 ps.這邊是系統自動產生，不要在這邊修改  在專案中產生一個Partial classpublic parti">
+<meta name="keywords" content="C#,Entity">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[C#]切換不同環境 Entity ">
+<meta property="og:url" content="https://songyuleo.github.io/LeoSung/entityswitch.html">
 <meta property="og:site_name" content="里歐口袋雜記">
-<meta property="og:description" content="關於程式設計點點滴滴">
+<meta property="og:description" content="在開發期間使用的Entity是在test環境下，但要切換到正式環境不用整個專案review一次或者把entity拿掉才能切換過去，不能針對xxx.edmx底下的DbContext直接修改，這是系統自動產生的，但可以再另外partail class要切換的Connection name 。 ps.這邊是系統自動產生，不要在這邊修改  在專案中產生一個Partial classpublic parti">
 <meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://i.imgur.com/47ZiRig.png">
+<meta property="og:image" content="https://i.imgur.com/45R8XsN.png">
+<meta property="og:image" content="https://i.imgur.com/tFJGhht.png">
+<meta property="og:image" content="https://i.imgur.com/d8A6O3V.png">
+<meta property="og:updated_time" content="2018-12-13T06:10:41.060Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="里歐口袋雜記">
-<meta name="twitter:description" content="關於程式設計點點滴滴">
+<meta name="twitter:title" content="[C#]切換不同環境 Entity ">
+<meta name="twitter:description" content="在開發期間使用的Entity是在test環境下，但要切換到正式環境不用整個專案review一次或者把entity拿掉才能切換過去，不能針對xxx.edmx底下的DbContext直接修改，這是系統自動產生的，但可以再另外partail class要切換的Connection name 。 ps.這邊是系統自動產生，不要在這邊修改  在專案中產生一個Partial classpublic parti">
+<meta name="twitter:image" content="https://i.imgur.com/47ZiRig.png">
 
 
 
@@ -120,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://songyuleo.github.io/LeoSung/"/>
+  <link rel="canonical" href="https://songyuleo.github.io/LeoSung/entityswitch.html"/>
 
 
 
 
 
-  <title>Hexo, NexT - 里歐口袋雜記 | 關於程式設計點點滴滴</title>
+  <title>[C#]切換不同環境 Entity  | 里歐口袋雜記</title>
   
 
 
@@ -145,8 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -249,9 +254,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -281,9 +286,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/LeoSung/entityswitch.html" itemprop="url">[C#]切換不同環境 Entity </a></h1>
+          <h1 class="post-title" itemprop="name headline">[C#]切換不同環境 Entity </h1>
         
 
         <div class="post-meta">
@@ -355,9 +358,7 @@
       
 
       
-        
-          
-            <p>在開發期間使用的Entity是在test環境下，但要切換到正式環境不用整個專案review一次或者把entity拿掉才能切換過去，不能針對xxx.edmx底下的<code>DbContext</code>直接修改，這是系統自動產生的，但可以再另外partail class要切換的Connection name 。</p>
+        <p>在開發期間使用的Entity是在test環境下，但要切換到正式環境不用整個專案review一次或者把entity拿掉才能切換過去，不能針對xxx.edmx底下的<code>DbContext</code>直接修改，這是系統自動產生的，但可以再另外partail class要切換的Connection name 。</p>
 <p>ps.這邊是系統自動產生，不要在這邊修改<br><img src="https://i.imgur.com/47ZiRig.png" alt=""></p>
 <hr>
 <h5 id="在專案中產生一個Partial-class"><a href="#在專案中產生一個Partial-class" class="headerlink" title="在專案中產生一個Partial class"></a>在專案中產生一個Partial class</h5><pre><code>public partial class Entities : DbContext
@@ -400,8 +401,6 @@ public class SwitchDbContext
 <p><br></p>
 <h5 id="接下來在原先宣告Entity的地方改成如下圖-如需切換Entity-Connection只要修改app-config-or-web-config裡面的內容就好了。"><a href="#接下來在原先宣告Entity的地方改成如下圖-如需切換Entity-Connection只要修改app-config-or-web-config裡面的內容就好了。" class="headerlink" title="接下來在原先宣告Entity的地方改成如下圖,如需切換Entity Connection只要修改app.config or web.config裡面的內容就好了。"></a>接下來在原先宣告Entity的地方改成如下圖,如需切換Entity Connection只要修改<code>app.config</code> or <code>web.config</code><appsettings>裡面的內容就好了。</appsettings></h5><p><img src="https://i.imgur.com/d8A6O3V.png" alt=""></p>
 
-          
-        
       
     </div>
     
@@ -416,307 +415,38 @@ public class SwitchDbContext
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://songyuleo.github.io/LeoSung/LeoSung/csharp1.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leo He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/LeoSung/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="里歐口袋雜記">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/LeoSung/csharp1.html" itemprop="url">[C#]自訂排序(Custom Sort)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-07-21T14:13:00+08:00">
-                2018-07-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/LeoSung/categories/C-筆記/" itemprop="url" rel="index">
-                    <span itemprop="name">C# 筆記</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/LeoSung/tags/C/" rel="tag"># C#</a>
           
-
+            <a href="/LeoSung/tags/Entity/" rel="tag"># Entity</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>User這次給了一道題目，按照指定的規則且多個條件下排序資料…，這非得要實作<a href="https://msdn.microsoft.com/zh-tw/library/system.icomparable&#40;v=vs.110&#41;.aspx" target="_blank" rel="noopener"><code>IComparable</code></a>來實現了。 </p>
-<p>在範例中有以下幾個重點</p>
-<ul>
-<li><p>第一次排序為指定順序(<code>Space</code>冒號前的字串先排序)</p>
-</li>
-<li><p>第二次排序為小到大排序(<code>Space</code>整個排序)</p>
-</li>
-<li><p>第三次排序為小到大排序(<code>Item</code>排序)</p>
-</li>
-</ul>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><iframe height="600px" width="100%" src="https://repl.it/@sungyuhe/Zi-Ding-Pai-Xu-Custom-Sort?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://songyuleo.github.io/LeoSung/LeoSung/jq1.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leo He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/LeoSung/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="里歐口袋雜記">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/LeoSung/jq1.html" itemprop="url">[Jquery]動態欄位(Dynamic column)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-07-14T13:56:00+08:00">
-                2018-07-14
-              </time>
+              <a href="/LeoSung/csharp1.html" rel="next" title="[C#]自訂排序(Custom Sort)">
+                <i class="fa fa-chevron-left"></i> [C#]自訂排序(Custom Sort)
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/LeoSung/categories/Juqery-筆記/" itemprop="url" rel="index">
-                    <span itemprop="name">Juqery 筆記</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>對於前端來說，許多專案針對<code>Form</code>的需求設計應該是百百種，常見的如動態欄位(Dynamic column)，本篇使用<a href="https://jquery.com/" target="_blank" rel="noopener"><code>Jquery</code></a>來實現</p>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><iframe height="265" scrolling="no" title="Dynamic colunm" src="//codepen.io/SungYuHe/embed/oMgvzW/?height=265&theme-id=dark&default-tab=result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/SungYuHe/pen/oMgvzW/" target="_blank" rel="noopener">Dynamic colunm</a> by LeoHe (<a href="https://codepen.io/SungYuHe" target="_blank" rel="noopener">@SungYuHe</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -726,169 +456,11 @@ public class SwitchDbContext
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://songyuleo.github.io/LeoSung/LeoSung/angular1.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leo He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/LeoSung/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="里歐口袋雜記">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/LeoSung/angular1.html" itemprop="url">[AngularJS] $broadcast , $emit , $on 事件處理機制筆記</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-06-09T14:00:00+08:00">
-                2018-06-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/LeoSung/categories/AngularJs-筆記/" itemprop="url" rel="index">
-                    <span itemprop="name">AngularJs 筆記</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>公司專案使用<a href="https://code.angularjs.org/1.6.10/docs/guide/migration" target="_blank" rel="noopener"><code>AngularJs 1.6</code></a>開發,面對使用者複雜又特殊的requirement ，一個page切多個<code>controller</code>也方便未來維護，那<code>controller</code>間如何來互相傳值呢?</p>
-<p>在<code>AngularJs</code>中 <code>$emit</code> , <code>$broadcast</code> and <code>$on</code> 用來處理各<code>controller</code>事件處理</p>
-<ul>
-<li><p><a href="https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$on" target="_blank" rel="noopener"><code>$on</code></a>用來接收<code>$emit</code> , <code>$broadcast</code>的事件(event)</p>
-</li>
-<li><p><a href="https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$emit" target="_blank" rel="noopener"><code>$emit</code></a>能向父級別parent controller傳遞事件(event)與資料(data)</p>
-</li>
-<li><p><a href="https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$broadcast" target="_blank" rel="noopener"><code>$broadcast</code></a>向子級別child controller傳遞事件(event)與資料(data)</p>
-</li>
-</ul>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意!"></a>注意!</h3><ul>
-<li>若同父級別向子級別傳遞事件(<code>$broadcast</code>)，多個同<code>level</code>子級別的<code>controller</code> 可以一起接收到事件,但其中一個子級別傳遞事件(<code>$emit</code>)，只有這個子級別的父級別可以收到事件，其他同<code>level</code>父級別<code>controller</code>無法收到事件</li>
-</ul>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><iframe height="465" scrolling="no" title="AngularJs $emit , $broadcast and $on Example Note" src="//codepen.io/SungYuHe/embed/eKjpzb/?height=265&theme-id=dark&default-tab=html,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/SungYuHe/pen/eKjpzb/" target="_blank" rel="noopener">AngularJs $emit , $broadcast and $on Example Note</a> by LeoHe (<a href="https://codepen.io/SungYuHe" target="_blank" rel="noopener">@SungYuHe</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
-
-
-
-
-<h5 id="參考-AngularJs-function"><a href="#參考-AngularJs-function" class="headerlink" title="參考:AngularJs function"></a>參考:<a href="https://docs.angularjs.org/api/ng/function" target="_blank" rel="noopener">AngularJs function</a></h5>
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -896,6 +468,10 @@ public class SwitchDbContext
 
 
           
+
+  
+
+
 
         </div>
         
@@ -916,8 +492,17 @@ public class SwitchDbContext
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -981,6 +566,22 @@ public class SwitchDbContext
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#在專案中產生一個Partial-class"><span class="nav-number">1.</span> <span class="nav-text">在專案中產生一個Partial class</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接下來到app-config-or-web-config-裡面找到-lt-appSettings-gt-加入這些，這樣未來只要改app-config-or-web-config就能切換。"><span class="nav-number">2.</span> <span class="nav-text">接下來到app.config or web.config 裡面找到&lt;appSettings&gt;加入這些，這樣未來只要改app.config or web.config就能切換。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#一樣到app-config-or-web-config-裡面找到-lt-connectionStrings-gt-後複製name-Entities這一條，在下方貼上並將name改成EntitiesP，ConnectionString需自行修改成自己的正式環境資訊。"><span class="nav-number">3.</span> <span class="nav-text">一樣到app.config or web.config 裡面找到&lt;connectionStrings&gt;後複製name=Entities這一條，在下方貼上並將name改成EntitiesP，ConnectionString需自行修改成自己的正式環境資訊。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接下來在原先宣告Entity的地方改成如下圖-如需切換Entity-Connection只要修改app-config-or-web-config裡面的內容就好了。"><span class="nav-number">4.</span> <span class="nav-text">接下來在原先宣告Entity的地方改成如下圖,如需切換Entity Connection只要修改app.config or web.config裡面的內容就好了。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1121,6 +722,10 @@ public class SwitchDbContext
   
 
   
+  <script type="text/javascript" src="/LeoSung/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/LeoSung/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

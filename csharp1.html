@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="C#," />
 
 
 
@@ -80,17 +80,18 @@
 
 
 
-<meta name="description" content="關於程式設計點點滴滴">
-<meta name="keywords" content="C#、Entity、JavaScript、AngularJs">
-<meta property="og:type" content="website">
-<meta property="og:title" content="里歐口袋雜記">
-<meta property="og:url" content="https://songyuleo.github.io/LeoSung/archives/2018/12/index.html">
+<meta name="description" content="User這次給了一道題目，按照指定的規則且多個條件下排序資料…，這非得要實作IComparable來實現了。  在範例中有以下幾個重點  第一次排序為指定順序(Space冒號前的字串先排序)  第二次排序為小到大排序(Space整個排序)  第三次排序為小到大排序(Item排序)   Example">
+<meta name="keywords" content="C#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[C#]自訂排序(Custom Sort)">
+<meta property="og:url" content="https://songyuleo.github.io/LeoSung/csharp1.html">
 <meta property="og:site_name" content="里歐口袋雜記">
-<meta property="og:description" content="關於程式設計點點滴滴">
+<meta property="og:description" content="User這次給了一道題目，按照指定的規則且多個條件下排序資料…，這非得要實作IComparable來實現了。  在範例中有以下幾個重點  第一次排序為指定順序(Space冒號前的字串先排序)  第二次排序為小到大排序(Space整個排序)  第三次排序為小到大排序(Item排序)   Example">
 <meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2018-07-20T07:02:26.177Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="里歐口袋雜記">
-<meta name="twitter:description" content="關於程式設計點點滴滴">
+<meta name="twitter:title" content="[C#]自訂排序(Custom Sort)">
+<meta name="twitter:description" content="User這次給了一道題目，按照指定的規則且多個條件下排序資料…，這非得要實作IComparable來實現了。  在範例中有以下幾個重點  第一次排序為指定順序(Space冒號前的字串先排序)  第二次排序為小到大排序(Space整個排序)  第三次排序為小到大排序(Item排序)   Example">
 
 
 
@@ -120,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://songyuleo.github.io/LeoSung/archives/2018/12/"/>
+  <link rel="canonical" href="https://songyuleo.github.io/LeoSung/csharp1.html"/>
 
 
 
 
 
-  <title>歸檔 | 里歐口袋雜記</title>
+  <title>[C#]自訂排序(Custom Sort) | 里歐口袋雜記</title>
   
 
 
@@ -145,7 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -249,74 +250,182 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共計 4 篇文章。 繼續努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://songyuleo.github.io/LeoSung/LeoSung/csharp1.html">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leo He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/LeoSung/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="里歐口袋雜記">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/LeoSung/entityswitch.html" itemprop="url">
-              
-                <span itemprop="name">[C#]切換不同環境 Entity </span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">[C#]自訂排序(Custom Sort)</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-12-02T17:56:00+08:00"
-              content="2018-12-02" >
-          12-02
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-07-21T14:13:00+08:00">
+                2018-07-21
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/LeoSung/categories/C-筆記/" itemprop="url" rel="index">
+                    <span itemprop="name">C# 筆記</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <p>User這次給了一道題目，按照指定的規則且多個條件下排序資料…，這非得要實作<a href="https://msdn.microsoft.com/zh-tw/library/system.icomparable&#40;v=vs.110&#41;.aspx" target="_blank" rel="noopener"><code>IComparable</code></a>來實現了。 </p>
+<p>在範例中有以下幾個重點</p>
+<ul>
+<li><p>第一次排序為指定順序(<code>Space</code>冒號前的字串先排序)</p>
+</li>
+<li><p>第二次排序為小到大排序(<code>Space</code>整個排序)</p>
+</li>
+<li><p>第三次排序為小到大排序(<code>Item</code>排序)</p>
+</li>
+</ul>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><iframe height="600px" width="100%" src="https://repl.it/@sungyuhe/Zi-Ding-Pai-Xu-Custom-Sort?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/LeoSung/tags/C/" rel="tag"># C#</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/LeoSung/jq1.html" rel="next" title="[Jquery]動態欄位(Dynamic column)">
+                <i class="fa fa-chevron-left"></i> [Jquery]動態欄位(Dynamic column)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/LeoSung/entityswitch.html" rel="prev" title="[C#]切換不同環境 Entity ">
+                [C#]切換不同環境 Entity  <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -324,6 +433,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -344,8 +457,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -409,6 +531,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -549,6 +687,10 @@
   
 
   
+  <script type="text/javascript" src="/LeoSung/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/LeoSung/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
