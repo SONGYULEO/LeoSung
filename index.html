@@ -259,6 +259,189 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/SONGYULEO/LeoSung/LeoSung/2018/12/02/entityswitch/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leo He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/LeoSung/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="里歐口袋雜記">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/LeoSung/2018/12/02/entityswitch/" itemprop="url">[C#]切換不同環境 Entity </a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-12-02T17:56:00+08:00">
+                2018-12-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/LeoSung/categories/C-筆記/" itemprop="url" rel="index">
+                    <span itemprop="name">C# 筆記</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在開發期間使用的Entity是在test環境下，但要切換到正式環境不用整個專案review一次或者把entity拿掉才能切換過去，不能針對xxx.edmx底下的<code>DbContext</code>直接修改，這是系統自動產生的，但可以再另外partail class要切換的Connection neame 。</p>
+<p>ps.這邊是系統自動產生，不要在這邊修改<br><img src="https://i.imgur.com/47ZiRig.png" alt=""></p>
+<hr>
+<h5 id="在專案中產生一個Partial-class"><a href="#在專案中產生一個Partial-class" class="headerlink" title="在專案中產生一個Partial class"></a>在專案中產生一個Partial class</h5><pre><code>public partial class Entities : DbContext
+{
+    public Entities (string ConnectionString):base(ConnectionString)
+    {
+
+
+    }
+
+}
+public class SwitchDbContext
+{
+    public Entities CreateDbContext(string connectionstring)
+    {
+        switch (connectionstring)
+        {
+            //QA連線
+            case &quot;QA&quot;:
+                return new Entities();
+
+            //Production連線
+            case &quot;Production&quot;:
+                return new Entities(&quot;name=EntitiesP&quot;);
+
+            //預設為QA連線
+            default:
+                return new Entities();
+        }
+    }
+
+
+
+
+}
+</code></pre><p><br></p>
+<h5 id="接下來到app-config-or-web-config-裡面找到-lt-appSettings-gt-加入這些，這樣未來只要改app-config-or-web-config就能切換。"><a href="#接下來到app-config-or-web-config-裡面找到-lt-appSettings-gt-加入這些，這樣未來只要改app-config-or-web-config就能切換。" class="headerlink" title="接下來到app.config or web.config 裡面找到&lt;appSettings&gt;加入這些，這樣未來只要改app.config or web.config就能切換。"></a>接下來到<code>app.config</code> or <code>web.config</code> 裡面找到<code>&lt;appSettings&gt;</code>加入這些，這樣未來只要改<code>app.config</code> or <code>web.config</code>就能切換。</h5><p><img src="https://i.imgur.com/45R8XsN.png" alt=""></p>
+<p><br></p>
+<h5 id="一樣到app-config-or-web-config-裡面找到-lt-connectionStrings-gt-後複製name-Entities這一條，在下方貼上並將name改成EntitiesP，ConnectionString需自行修改成自己的正式環境資訊。"><a href="#一樣到app-config-or-web-config-裡面找到-lt-connectionStrings-gt-後複製name-Entities這一條，在下方貼上並將name改成EntitiesP，ConnectionString需自行修改成自己的正式環境資訊。" class="headerlink" title="一樣到app.config or web.config 裡面找到&lt;connectionStrings&gt;後複製name=Entities這一條，在下方貼上並將name改成EntitiesP，ConnectionString需自行修改成自己的正式環境資訊。"></a>一樣到<code>app.config</code> or <code>web.config</code> 裡面找到<code>&lt;connectionStrings&gt;</code>後複製<code>name=Entities</code>這一條，在下方貼上並將<code>name</code>改成<code>EntitiesP</code>，<code>ConnectionString</code>需自行修改成自己的正式環境資訊。</h5><p><img src="https://i.imgur.com/tFJGhht.png" alt=""></p>
+<p><br></p>
+<h5 id="接下來在原先宣告Entity的地方改成如下圖-如需切換Entity-Connection只要修改app-config-or-web-config裡面的內容就好了。"><a href="#接下來在原先宣告Entity的地方改成如下圖-如需切換Entity-Connection只要修改app-config-or-web-config裡面的內容就好了。" class="headerlink" title="接下來在原先宣告Entity的地方改成如下圖,如需切換Entity Connection只要修改app.config or web.config裡面的內容就好了。"></a>接下來在原先宣告Entity的地方改成如下圖,如需切換Entity Connection只要修改<code>app.config</code> or <code>web.config</code><appsettings>裡面的內容就好了。</appsettings></h5><p><img src="https://i.imgur.com/d8A6O3V.png" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/SONGYULEO/LeoSung/LeoSung/2018/07/21/csharp1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -748,7 +931,7 @@
               
                 <a href="/LeoSung/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -770,7 +953,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/LeoSung/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>

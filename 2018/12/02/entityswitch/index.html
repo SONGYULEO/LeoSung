@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="C#," />
+  <meta name="keywords" content="C#,Entity," />
 
 
 
@@ -79,18 +79,23 @@
 
 
 
-<meta name="description" content="User這次給了一道題目，按照指定的規則且多個條件下排序資料…，這非得要實作IComparable來實現了。  在範例中有以下幾個重點  第一次排序為指定順序(Space冒號前的字串先排序)  第二次排序為小到大排序(Space整個排序)  第三次排序為小到大排序(Item排序)   Example">
-<meta name="keywords" content="C#">
+<meta name="description" content="在開發期間使用的Entity是在test環境下，但要切換到正式環境不用整個專案review一次或者把entity拿掉才能切換過去，不能針對xxx.edmx底下的DbContext直接修改，這是系統自動產生的，但可以再另外partail class要切換的Connection neame 。 ps.這邊是系統自動產生，不要在這邊修改  在專案中產生一個Partial classpublic part">
+<meta name="keywords" content="C#,Entity">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[C#]自訂排序(Custom Sort)">
-<meta property="og:url" content="https://github.com/SONGYULEO/LeoSung/2018/07/21/csharp1/index.html">
+<meta property="og:title" content="[C#]切換不同環境 Entity ">
+<meta property="og:url" content="https://github.com/SONGYULEO/LeoSung/2018/12/02/entityswitch/index.html">
 <meta property="og:site_name" content="里歐口袋雜記">
-<meta property="og:description" content="User這次給了一道題目，按照指定的規則且多個條件下排序資料…，這非得要實作IComparable來實現了。  在範例中有以下幾個重點  第一次排序為指定順序(Space冒號前的字串先排序)  第二次排序為小到大排序(Space整個排序)  第三次排序為小到大排序(Item排序)   Example">
+<meta property="og:description" content="在開發期間使用的Entity是在test環境下，但要切換到正式環境不用整個專案review一次或者把entity拿掉才能切換過去，不能針對xxx.edmx底下的DbContext直接修改，這是系統自動產生的，但可以再另外partail class要切換的Connection neame 。 ps.這邊是系統自動產生，不要在這邊修改  在專案中產生一個Partial classpublic part">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-07-20T07:02:26.177Z">
+<meta property="og:image" content="https://i.imgur.com/47ZiRig.png">
+<meta property="og:image" content="https://i.imgur.com/45R8XsN.png">
+<meta property="og:image" content="https://i.imgur.com/tFJGhht.png">
+<meta property="og:image" content="https://i.imgur.com/d8A6O3V.png">
+<meta property="og:updated_time" content="2018-12-13T00:49:43.317Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[C#]自訂排序(Custom Sort)">
-<meta name="twitter:description" content="User這次給了一道題目，按照指定的規則且多個條件下排序資料…，這非得要實作IComparable來實現了。  在範例中有以下幾個重點  第一次排序為指定順序(Space冒號前的字串先排序)  第二次排序為小到大排序(Space整個排序)  第三次排序為小到大排序(Item排序)   Example">
+<meta name="twitter:title" content="[C#]切換不同環境 Entity ">
+<meta name="twitter:description" content="在開發期間使用的Entity是在test環境下，但要切換到正式環境不用整個專案review一次或者把entity拿掉才能切換過去，不能針對xxx.edmx底下的DbContext直接修改，這是系統自動產生的，但可以再另外partail class要切換的Connection neame 。 ps.這邊是系統自動產生，不要在這邊修改  在專案中產生一個Partial classpublic part">
+<meta name="twitter:image" content="https://i.imgur.com/47ZiRig.png">
 
 
 
@@ -120,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/SONGYULEO/LeoSung/2018/07/21/csharp1/"/>
+  <link rel="canonical" href="https://github.com/SONGYULEO/LeoSung/2018/12/02/entityswitch/"/>
 
 
 
 
 
-  <title>[C#]自訂排序(Custom Sort) | 里歐口袋雜記</title>
+  <title>[C#]切換不同環境 Entity  | 里歐口袋雜記</title>
   
 
 
@@ -263,7 +268,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/SONGYULEO/LeoSung/LeoSung/2018/07/21/csharp1/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/SONGYULEO/LeoSung/LeoSung/2018/12/02/entityswitch/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Leo He">
@@ -280,7 +285,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[C#]自訂排序(Custom Sort)</h1>
+          <h1 class="post-title" itemprop="name headline">[C#]切換不同環境 Entity </h1>
         
 
         <div class="post-meta">
@@ -292,8 +297,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-07-21T14:13:00+08:00">
-                2018-07-21
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-12-02T17:56:00+08:00">
+                2018-12-02
               </time>
             
 
@@ -352,17 +357,49 @@
       
 
       
-        <p>User這次給了一道題目，按照指定的規則且多個條件下排序資料…，這非得要實作<a href="https://msdn.microsoft.com/zh-tw/library/system.icomparable&#40;v=vs.110&#41;.aspx" target="_blank" rel="noopener"><code>IComparable</code></a>來實現了。 </p>
-<p>在範例中有以下幾個重點</p>
-<ul>
-<li><p>第一次排序為指定順序(<code>Space</code>冒號前的字串先排序)</p>
-</li>
-<li><p>第二次排序為小到大排序(<code>Space</code>整個排序)</p>
-</li>
-<li><p>第三次排序為小到大排序(<code>Item</code>排序)</p>
-</li>
-</ul>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><iframe height="600px" width="100%" src="https://repl.it/@sungyuhe/Zi-Ding-Pai-Xu-Custom-Sort?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+        <p>在開發期間使用的Entity是在test環境下，但要切換到正式環境不用整個專案review一次或者把entity拿掉才能切換過去，不能針對xxx.edmx底下的<code>DbContext</code>直接修改，這是系統自動產生的，但可以再另外partail class要切換的Connection neame 。</p>
+<p>ps.這邊是系統自動產生，不要在這邊修改<br><img src="https://i.imgur.com/47ZiRig.png" alt=""></p>
+<hr>
+<h5 id="在專案中產生一個Partial-class"><a href="#在專案中產生一個Partial-class" class="headerlink" title="在專案中產生一個Partial class"></a>在專案中產生一個Partial class</h5><pre><code>public partial class Entities : DbContext
+{
+    public Entities (string ConnectionString):base(ConnectionString)
+    {
+
+
+    }
+
+}
+public class SwitchDbContext
+{
+    public Entities CreateDbContext(string connectionstring)
+    {
+        switch (connectionstring)
+        {
+            //QA連線
+            case &quot;QA&quot;:
+                return new Entities();
+
+            //Production連線
+            case &quot;Production&quot;:
+                return new Entities(&quot;name=EntitiesP&quot;);
+
+            //預設為QA連線
+            default:
+                return new Entities();
+        }
+    }
+
+
+
+
+}
+</code></pre><p><br></p>
+<h5 id="接下來到app-config-or-web-config-裡面找到-lt-appSettings-gt-加入這些，這樣未來只要改app-config-or-web-config就能切換。"><a href="#接下來到app-config-or-web-config-裡面找到-lt-appSettings-gt-加入這些，這樣未來只要改app-config-or-web-config就能切換。" class="headerlink" title="接下來到app.config or web.config 裡面找到&lt;appSettings&gt;加入這些，這樣未來只要改app.config or web.config就能切換。"></a>接下來到<code>app.config</code> or <code>web.config</code> 裡面找到<code>&lt;appSettings&gt;</code>加入這些，這樣未來只要改<code>app.config</code> or <code>web.config</code>就能切換。</h5><p><img src="https://i.imgur.com/45R8XsN.png" alt=""></p>
+<p><br></p>
+<h5 id="一樣到app-config-or-web-config-裡面找到-lt-connectionStrings-gt-後複製name-Entities這一條，在下方貼上並將name改成EntitiesP，ConnectionString需自行修改成自己的正式環境資訊。"><a href="#一樣到app-config-or-web-config-裡面找到-lt-connectionStrings-gt-後複製name-Entities這一條，在下方貼上並將name改成EntitiesP，ConnectionString需自行修改成自己的正式環境資訊。" class="headerlink" title="一樣到app.config or web.config 裡面找到&lt;connectionStrings&gt;後複製name=Entities這一條，在下方貼上並將name改成EntitiesP，ConnectionString需自行修改成自己的正式環境資訊。"></a>一樣到<code>app.config</code> or <code>web.config</code> 裡面找到<code>&lt;connectionStrings&gt;</code>後複製<code>name=Entities</code>這一條，在下方貼上並將<code>name</code>改成<code>EntitiesP</code>，<code>ConnectionString</code>需自行修改成自己的正式環境資訊。</h5><p><img src="https://i.imgur.com/tFJGhht.png" alt=""></p>
+<p><br></p>
+<h5 id="接下來在原先宣告Entity的地方改成如下圖-如需切換Entity-Connection只要修改app-config-or-web-config裡面的內容就好了。"><a href="#接下來在原先宣告Entity的地方改成如下圖-如需切換Entity-Connection只要修改app-config-or-web-config裡面的內容就好了。" class="headerlink" title="接下來在原先宣告Entity的地方改成如下圖,如需切換Entity Connection只要修改app.config or web.config裡面的內容就好了。"></a>接下來在原先宣告Entity的地方改成如下圖,如需切換Entity Connection只要修改<code>app.config</code> or <code>web.config</code><appsettings>裡面的內容就好了。</appsettings></h5><p><img src="https://i.imgur.com/d8A6O3V.png" alt=""></p>
+
       
     </div>
     
@@ -381,6 +418,8 @@
           
             <a href="/LeoSung/tags/C/" rel="tag"># C#</a>
           
+            <a href="/LeoSung/tags/Entity/" rel="tag"># Entity</a>
+          
         </div>
       
 
@@ -392,8 +431,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/LeoSung/2018/07/14/jq1/" rel="next" title="[Jquery]動態欄位(Dynamic column)">
-                <i class="fa fa-chevron-left"></i> [Jquery]動態欄位(Dynamic column)
+              <a href="/LeoSung/2018/07/21/csharp1/" rel="next" title="[C#]自訂排序(Custom Sort)">
+                <i class="fa fa-chevron-left"></i> [C#]自訂排序(Custom Sort)
               </a>
             
           </div>
@@ -401,10 +440,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/LeoSung/2018/12/02/entityswitch/" rel="prev" title="[C#]切換不同環境 Entity ">
-                [C#]切換不同環境 Entity  <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -540,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#在專案中產生一個Partial-class"><span class="nav-number">1.</span> <span class="nav-text">在專案中產生一個Partial class</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接下來到app-config-or-web-config-裡面找到-lt-appSettings-gt-加入這些，這樣未來只要改app-config-or-web-config就能切換。"><span class="nav-number">2.</span> <span class="nav-text">接下來到app.config or web.config 裡面找到&lt;appSettings&gt;加入這些，這樣未來只要改app.config or web.config就能切換。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#一樣到app-config-or-web-config-裡面找到-lt-connectionStrings-gt-後複製name-Entities這一條，在下方貼上並將name改成EntitiesP，ConnectionString需自行修改成自己的正式環境資訊。"><span class="nav-number">3.</span> <span class="nav-text">一樣到app.config or web.config 裡面找到&lt;connectionStrings&gt;後複製name=Entities這一條，在下方貼上並將name改成EntitiesP，ConnectionString需自行修改成自己的正式環境資訊。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接下來在原先宣告Entity的地方改成如下圖-如需切換Entity-Connection只要修改app-config-or-web-config裡面的內容就好了。"><span class="nav-number">4.</span> <span class="nav-text">接下來在原先宣告Entity的地方改成如下圖,如需切換Entity Connection只要修改app.config or web.config裡面的內容就好了。</span></a></li></ol></div>
             
 
           </div>
