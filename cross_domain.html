@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="C#,Juqery,JavaScript," />
 
 
 
@@ -80,18 +80,20 @@
 
 
 
-<meta name="description" content="關於程式設計點點滴滴">
-<meta name="keywords" content="C#、Entity、JavaScript、AngularJs">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="https://songyuleo.github.io/LeoSung/categories/index.html">
+<meta name="description" content="紀錄一下許早之前遇到的Cross-Domain問題，在Local測試得很開心都沒問題，一把東西丟到測試環境這問題就出現了…原因可以參考WIKI的介紹Cross-origin resource sharing 簡單來說用Ajax向非同域請求資源會先丟一個&amp;quot;preflight: HTTP OPTIONS 的方法給Server端檢驗，若通過才會丟正式的request出去(get、post等等)">
+<meta name="keywords" content="C#,Juqery,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[C#、Juqery]Cross-Domain server 端處理">
+<meta property="og:url" content="https://songyuleo.github.io/LeoSung/cross_domain.html">
 <meta property="og:site_name" content="里歐口袋雜記">
-<meta property="og:description" content="關於程式設計點點滴滴">
+<meta property="og:description" content="紀錄一下許早之前遇到的Cross-Domain問題，在Local測試得很開心都沒問題，一把東西丟到測試環境這問題就出現了…原因可以參考WIKI的介紹Cross-origin resource sharing 簡單來說用Ajax向非同域請求資源會先丟一個&amp;quot;preflight: HTTP OPTIONS 的方法給Server端檢驗，若通過才會丟正式的request出去(get、post等等)">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-06-09T06:11:49.677Z">
+<meta property="og:image" content="https://i.imgur.com/FSsguRv.png">
+<meta property="og:updated_time" content="2018-12-13T08:33:33.736Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="關於程式設計點點滴滴">
+<meta name="twitter:title" content="[C#、Juqery]Cross-Domain server 端處理">
+<meta name="twitter:description" content="紀錄一下許早之前遇到的Cross-Domain問題，在Local測試得很開心都沒問題，一把東西丟到測試環境這問題就出現了…原因可以參考WIKI的介紹Cross-origin resource sharing 簡單來說用Ajax向非同域請求資源會先丟一個&amp;quot;preflight: HTTP OPTIONS 的方法給Server端檢驗，若通過才會丟正式的request出去(get、post等等)">
+<meta name="twitter:image" content="https://i.imgur.com/FSsguRv.png">
 
 
 
@@ -121,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="https://songyuleo.github.io/LeoSung/categories/"/>
+  <link rel="canonical" href="https://songyuleo.github.io/LeoSung/cross_domain.html"/>
 
 
 
 
 
-  <title>categories | 里歐口袋雜記</title>
+  <title>[C#、Juqery]Cross-Domain server 端處理 | 里歐口袋雜記</title>
   
 
 
@@ -252,40 +254,176 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://songyuleo.github.io/LeoSung/LeoSung/cross_domain.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leo He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/LeoSung/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="里歐口袋雜記">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共計 3 個分類
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/LeoSung/categories/AngularJs-筆記/">AngularJs 筆記</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/LeoSung/categories/C-筆記/">C# 筆記</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/LeoSung/categories/Juqery-筆記/">Juqery 筆記</a><span class="category-list-count">2</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">[C#、Juqery]Cross-Domain server 端處理</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-09-12T20:41:00+08:00">
+                2018-09-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/LeoSung/categories/Juqery-筆記/" itemprop="url" rel="index">
+                    <span itemprop="name">Juqery 筆記</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>紀錄一下許早之前遇到的<code>Cross-Domain</code>問題，在Local測試得很開心都沒問題，一把東西丟到測試環境這問題就出現了…<br>原因可以參考WIKI的介紹<a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing" target="_blank" rel="noopener"><code>Cross-origin resource sharing</code></a></p>
+<p>簡單來說用Ajax向非同域請求資源會先丟一個<code>&quot;preflight:</code> HTTP OPTIONS 的方法給Server端檢驗，若通過才會丟正式的request出去(get、post等等)，若非允許的<code>跨域</code>請求的需求沒有處理會被Reject，造成Ajax失敗，解法有很多種，但我還是用最簡單的方式<code>Access-Control-Allow-Origin</code>針對server端處理。</p>
+<h5 id="web-config內的-lt-system-webServer-gt-加入紅框部分，-代表允許任何人存取"><a href="#web-config內的-lt-system-webServer-gt-加入紅框部分，-代表允許任何人存取" class="headerlink" title="web.config內的&lt;system.webServer&gt;加入紅框部分，*代表允許任何人存取"></a>web.config內的&lt;system.webServer&gt;加入紅框部分，<code>*</code>代表允許任何人存取</h5><p><img src="https://i.imgur.com/FSsguRv.png" alt=""></p>
+<h4 id="注意-這樣的方式很快但不代表適合任何人，若要限制也可以這樣寫Access-Control-Allow-Origin-http-xxxxx-com"><a href="#注意-這樣的方式很快但不代表適合任何人，若要限制也可以這樣寫Access-Control-Allow-Origin-http-xxxxx-com" class="headerlink" title="注意:這樣的方式很快但不代表適合任何人，若要限制也可以這樣寫Access-Control-Allow-Origin: http://xxxxx.com"></a>注意:這樣的方式很快但不代表適合任何人，若要限制也可以這樣寫<code>Access-Control-Allow-Origin: http://xxxxx.com</code></h4><h4 id="其他也有JsonP的方式也是不錯的方式，有機會再發表一篇來解說吧"><a href="#其他也有JsonP的方式也是不錯的方式，有機會再發表一篇來解說吧" class="headerlink" title="其他也有JsonP的方式也是不錯的方式，有機會再發表一篇來解說吧~"></a>其他也有<code>JsonP</code>的方式也是不錯的方式，有機會再發表一篇來解說吧~</h4>
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/LeoSung/tags/C/" rel="tag"># C#</a>
+          
+            <a href="/LeoSung/tags/Juqery/" rel="tag"># Juqery</a>
+          
+            <a href="/LeoSung/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/LeoSung/csharp1.html" rel="next" title="[C#]自訂排序(Custom Sort)">
+                <i class="fa fa-chevron-left"></i> [C#]自訂排序(Custom Sort)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/LeoSung/entityswitch.html" rel="prev" title="[C#]切換不同環境 Entity ">
+                [C#]切換不同環境 Entity  <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -318,8 +456,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -383,6 +530,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#web-config內的-lt-system-webServer-gt-加入紅框部分，-代表允許任何人存取"><span class="nav-number">1.</span> <span class="nav-text">web.config內的&lt;system.webServer&gt;加入紅框部分，*代表允許任何人存取</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意-這樣的方式很快但不代表適合任何人，若要限制也可以這樣寫Access-Control-Allow-Origin-http-xxxxx-com"><span class="nav-number"></span> <span class="nav-text">注意:這樣的方式很快但不代表適合任何人，若要限制也可以這樣寫Access-Control-Allow-Origin: http://xxxxx.com</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他也有JsonP的方式也是不錯的方式，有機會再發表一篇來解說吧"><span class="nav-number"></span> <span class="nav-text">其他也有JsonP的方式也是不錯的方式，有機會再發表一篇來解說吧~</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
